@@ -4,9 +4,9 @@
 
 - 简单的 orm 映射关系
 - github: 
-  - https://github.com/Darian1996/orm-core
+  - <a href="https://github.com/Darian1996/orm-core" target="_blank"> 
 - gitee: 
-  - https://gitee.com/Darian1996/orm-core
+  - <a href="https://gitee.com/Darian1996/orm-core" target="_blank">
 
 [Why](/Why.md) 
 
