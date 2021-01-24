@@ -3,7 +3,8 @@
 ## 简介
 
 - 简单的 orm 映射关系
-- 理论上可以支持任何的数据库，（可惜绑定了 Spring）
+- 理论上最快，最核心，不与任何数据库强绑定，只强调映射关系，可以与任何数据库GAV进行集成
+- 缺点：绑定了 Spring
 - github:
   - <a href="https://github.com/Darian1996/orm-core" target="_blank">github_rep</a>
 - gitee:
