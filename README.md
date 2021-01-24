@@ -3,6 +3,7 @@
 ## 简介
 
 - 简单的 orm 映射关系
+- 理论上可以支持任何的数据库，（可惜绑定了 Spring）
 - github:
   - <a href="https://github.com/Darian1996/orm-core" target="_blank">github_rep</a>
 - gitee:
@@ -20,6 +21,8 @@
 3. 支持扩展，字段名与数据库名字对应关系可以自定义。是否初始化。
 4. **支持 Function 编程，`Function` 与 `fieldName` 也进行了缓存。**  例如：`#getUserName` 与 `userName` 的对应关系。
 5. **快，无任何反射运行时的消耗！！！**
+6. 不想引入其他的依赖，又不想使用便捷的 API，（你引入 spring-data-jpa ，就立马绑定上了，而且还没有 Function 与 column 的对应关系）
+7. 高扩展性，可以自定义实现 `fieldName` 与 `columnName` 对应关系，比如，你们的表明开头都有 "xxx_" 这种，也很容易做到。
 
 ## Feature
 
@@ -53,14 +56,22 @@
 
 ```java
 @SpringBootApplication
-@TableInfoComponentScan("top.darian.orm.core.example.endity")
+@TableInfoComponentScan("top.darian.orm.core.example")
 public class OrmCoreExampleApplication {
 
   public static void main(String[] args) {
-    ConfigurableApplicationContext run = SpringApplication.run(OrmCoreExampleApplication.class, args);
-    // user_name*__*
-    System.out.println(BeanToDataBaseUtils.getColumnByFunctionName(UserDO::getUserName, UserDO.class));
+    SpringApplication.run(OrmCoreExampleApplication.class, args);
+    // user_name
+    System.out.println(
+            BeanToDataBaseUtils.getColumnByFunctionName(
+                    TestModule::getUserName,
+                    TestModule.class));
   }
+}
+@TableInfo
+@Data
+class TestModule {
+  private String userName;
 }
 ```
 
