@@ -20,6 +20,9 @@
 3. 支持扩展，字段名与数据库名字对应关系可以自定义。是否初始化。
 4. **支持 Function 编程，`Function` 与 `fieldName` 也进行了缓存。**  例如：`#getUserName` 与 `userName` 的对应关系。
 
+## Feature
+
+- 基于 Spring xml 的扩展解析，还没做，只是做了注解的。。。。。。
 
 
 ### Tips
