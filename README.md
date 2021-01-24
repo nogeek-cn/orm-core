@@ -1,12 +1,15 @@
 # ORM_core 
 
-## 设计初衷 
+## 简介
 
 - 简单的 orm 映射关系
-- github: 
+- github:
   - <a href="https://github.com/Darian1996/orm-core" target="_blank">github_rep</a>
-- gitee: 
+- gitee:
   - <a href="https://gitee.com/Darian1996/orm-core" target="_blank">gitee_rep</a>
+
+
+## 设计初衷 
 
 [Why](/Why.md) 
 
