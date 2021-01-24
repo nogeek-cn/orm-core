@@ -90,6 +90,16 @@ class TestModule {
 ```
 
 
+### 后续计划：
+
+- 一天写完，有点仓促，xml 的还没有实现 
+
+```xml
+<TableInfo:tableinfo-component-scan base-package="xxx.xxx.xx" />
+```
+
+- 未来有空了会做，大家也可以给我提 pr。哈哈哈哈
+
 
 
 
