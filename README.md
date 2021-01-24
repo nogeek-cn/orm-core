@@ -81,11 +81,11 @@ class TestModule {
 ```properties
 # 系统启动的时候是否把 对应关系 初始化
 #top.darian.tableInfoServiceBean.earlyInitialization=true
-#top.darian.tableInfoServiceBean.earlyInitialization=false
+top.darian.tableInfoServiceBean.earlyInitialization=false
 # 全局 fieldName 和 column 对应关系 默认策略： top.darian.orm.core.spring.util.module.mapping.SnakeCaseFieldNamingStrategy
-#top.darian.orm.core.spring.util.module.mapping.FieldNamingStrategy=classFullName
+top.darian.orm.core.spring.util.module.mapping.FieldNamingStrategy=classFullName
 # 全局 entity.classSimpleName 和 tableName 对应关系 默认策略： top.darian.orm.core.spring.util.module.mapping.SnakeCaseFieldNamingStrategy
-#top.darian.orm.core.spring.util.module.mapping.tableNamingStrategy=classFullName
+top.darian.orm.core.spring.util.module.mapping.tableNamingStrategy=classFullName
 
 ```
 
