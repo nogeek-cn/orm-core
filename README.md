@@ -3,6 +3,10 @@
 ## 设计初衷 
 
 - 简单的 orm 映射关系
+- github: 
+  - https://github.com/Darian1996/orm-core
+- gitee: 
+  - https://gitee.com/Darian1996/orm-core
 
 [Why](/Why.md) 
 
