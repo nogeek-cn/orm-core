@@ -2,6 +2,7 @@ package top.darian.orm.core.config.spring.beans.factory.annotation;
 
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.util.StringUtils;
+import top.darian.orm.core.common.constants.CommonConstants;
 
 /***
  *
@@ -10,7 +11,6 @@ import org.springframework.util.StringUtils;
  * @date 2021/1/23  下午4:15
  */
 
-import static com.alibaba.spring.util.AnnotationUtils.getAttribute;
 
 /**
  * TableInfo {@link top.darian.orm.core.config.annotation.TableInfo} Bean Builder
@@ -21,7 +21,6 @@ public class TableInfoServiceBeanNameBuilder {
 
     private static final String SEPARATOR = ":";
 
-    private static final String TABLE_INFO_BEAN_NAME_PREFIX = "TableInfoServiceBean";
     // Required
     private final String interfaceClassName;
 
@@ -60,7 +59,7 @@ public class TableInfoServiceBeanNameBuilder {
 
 
     public String build() {
-        StringBuilder beanNameBuilder = new StringBuilder(TABLE_INFO_BEAN_NAME_PREFIX);
+        StringBuilder beanNameBuilder = new StringBuilder(CommonConstants.TABLE_INFO_BEAN_NAME_PREFIX);
         // Required
         append(beanNameBuilder, interfaceClassName);
         // Optional

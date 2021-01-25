@@ -41,6 +41,7 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.xml.BeanDefinitionParser;
 import org.springframework.context.annotation.AnnotationConfigUtils;
 import org.springframework.context.annotation.ConfigurationClassPostProcessor;
+import top.darian.orm.core.common.constants.CommonConstants;
 import top.darian.orm.core.common.utils.ArrayUtils;
 import top.darian.orm.core.common.utils.ClassUtils;
 import top.darian.orm.core.common.utils.FieldUtils;
@@ -482,15 +483,16 @@ public class ServiceClassPostProcessor implements BeanDefinitionRegistryPostProc
     @Override
     public void setEnvironment(Environment environment) {
         this.environment = environment;
-        String fieldNaming = environment.getProperty("top.darian.orm.core.spring.util.module.mapping.FieldNamingStrategy");
+        String fieldNaming = environment.getProperty(CommonConstants.TABLE_INFO_FIELD_NAMING_STRATEGY);
         fieldNamingStrategy = getFieldNamingStrategyByClassNameString(fieldNaming);
         if (Objects.isNull(fieldNamingStrategy)) {
             logger.info("fieldNamingStrategy user the SnakeCaseFieldNamingStrategy");
             fieldNamingStrategy = new SnakeCaseFieldNamingStrategy();
         }
 
-        String tableNaming = environment.getProperty("top.darian.orm.core.spring.util.module.mapping.tableNamingStrategy");
-        if (Objects.isNull(tableNaming)) {
+        String tableNaming = environment.getProperty(CommonConstants.TABLE_INFO_TABLE_NAMING_STRATEGY);
+        tableNamingStrategy = getFieldNamingStrategyByClassNameString(tableNaming);
+        if (Objects.isNull(tableNamingStrategy)) {
             logger.info("tableNamingStrategy user the SnakeCaseFieldNamingStrategy");
             tableNamingStrategy = new SnakeCaseFieldNamingStrategy();
         }

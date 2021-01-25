@@ -14,49 +14,16 @@ public interface CommonConstants {
 
     String TABLE_INFO = "TABLE_INFO";
 
-    String ANY_VALUE = "*";
+    String TABLE_INFO_BEAN_NAME_PREFIX = "TableInfoServiceBean";
 
-    char COMMA_SEPARATOR_CHAR = ',';
+    String TABLE_INFO_BEAN_EARLY_INITIALIZATION = "orm.core.earlyInitialization";
+
+    String TABLE_INFO_FIELD_NAMING_STRATEGY = "orm.core.fieldNamingStrategy";
+
+    String TABLE_INFO_TABLE_NAMING_STRATEGY = "orm.core.tableNamingStrategy";
 
     String COMMA_SEPARATOR = ",";
 
-    String DOT_SEPARATOR = ".";
-
     Pattern COMMA_SPLIT_PATTERN = Pattern.compile("\\s*[,]+\\s*");
-
-    String PATH_SEPARATOR = "/";
-
-    String PROTOCOL_SEPARATOR = "://";
-
-
-    String REGISTRY_SEPARATOR = "|";
-
-    Pattern REGISTRY_SPLIT_PATTERN = Pattern.compile("\\s*[|;]+\\s*");
-
-    Pattern D_REGISTRY_SPLIT_PATTERN = Pattern.compile("\\s*[|]+\\s*");
-
-    String SEMICOLON_SEPARATOR = ";";
-
-    Pattern SEMICOLON_SPLIT_PATTERN = Pattern.compile("\\s*[;]+\\s*");
-
-    Pattern EQUAL_SPLIT_PATTERN = Pattern.compile("\\s*[=]+\\s*");
-
-    Pattern COLON_SPLIT_PATTERN = Pattern.compile("\\s*[:]+\\s*");
-
-    String REMOVE_VALUE_PREFIX = "-";
-
-    String PROPERTIES_CHAR_SEPARATOR = "-";
-
-    String UNDERLINE_SEPARATOR = "_";
-
-    String SEPARATOR_REGEX = "_|-";
-
-    String GROUP_CHAR_SEPARATOR = ":";
-
-    String HIDE_KEY_PREFIX = ".";
-
-    String DOT_REGEX = "\\.";
-
-
 }
 

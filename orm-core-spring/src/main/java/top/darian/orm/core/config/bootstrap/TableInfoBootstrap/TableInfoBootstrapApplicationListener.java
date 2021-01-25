@@ -8,6 +8,8 @@ package top.darian.orm.core.config.bootstrap.TableInfoBootstrap;
  */
 
 import com.alibaba.spring.context.OnceApplicationContextEventListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationContextEvent;
@@ -15,6 +17,7 @@ import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.Ordered;
 import top.darian.orm.core.bootstrap.TableInfoBootstrap;
+import top.darian.orm.core.common.constants.CommonConstants;
 import top.darian.orm.core.spring.TableInfoServiceBean;
 import top.darian.orm.core.spring.beans.util.TableInfoBeanUtils;
 
@@ -28,6 +31,8 @@ import java.util.Map;
  */
 public class TableInfoBootstrapApplicationListener
         extends OnceApplicationContextEventListener implements Ordered {
+
+    private Logger logger = LoggerFactory.getLogger(TableInfoBootstrapApplicationListener.class);
 
     /**
      * The bean name of {@link TableInfoBootstrapApplicationListener}
@@ -47,12 +52,16 @@ public class TableInfoBootstrapApplicationListener
         this.applicationContext = applicationContext;
         this.tableInfoBootstrap = TableInfoBootstrap.getInstance();
         TableInfoBeanUtils.setApplicationContext(applicationContext);
-        String property = applicationContext.getEnvironment().getProperty("top.darian.tableInfoServiceBean.earlyInitialization");
-        if (Boolean.TRUE.equals(property)) {
+
+        String property = applicationContext.getEnvironment()
+                .getProperty(CommonConstants.TABLE_INFO_BEAN_EARLY_INITIALIZATION);
+
+        if (Boolean.TRUE.equals(Boolean.valueOf(property))) {
             earlyInitialization = true;
         } else {
             earlyInitialization = false;
         }
+        logger.info("tableInfoServiceBean environment earlyInitialization: " + earlyInitialization);
     }
 
     @Override
@@ -66,7 +75,10 @@ public class TableInfoBootstrapApplicationListener
 
     private void onContextRefreshedEvent(ContextRefreshedEvent event) {
         if (earlyInitialization) {
-            applicationContext.getBeansOfType(TableInfoServiceBean.class);
+            logger.info("tableInfoServiceBean.earlyInitialization is true");
+            Map<String, TableInfoServiceBean> beansOfType =
+                    applicationContext.getBeansOfType(TableInfoServiceBean.class);
+            logger.info("tableInfoServiceBean.earlyInitialization bean count: " + beansOfType.size());
         }
         tableInfoBootstrap.start();
     }
