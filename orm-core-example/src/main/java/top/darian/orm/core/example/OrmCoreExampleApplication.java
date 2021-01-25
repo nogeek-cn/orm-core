@@ -20,8 +20,12 @@ public class OrmCoreExampleApplication {
                 BeanToDataBaseUtils.getColumnByFunctionName(
                         TestModule::getUserName,
                         TestModule.class));
+
+        System.out.printf(BeanToDataBaseUtils.getTableNameByClazz(TestModule.class));
+
     }
 }
+
 @TableInfo
 @Data
 class TestModule {

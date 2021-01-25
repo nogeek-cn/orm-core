@@ -6,7 +6,6 @@ package top.darian.orm.core.spring.util.module.mapping;
  * <p>copy from <p/>
  *
  * @author Oliver Gierke
- * @see CamelCaseAbbreviatingFieldNamingStrategy
  * @see SnakeCaseFieldNamingStrategy
  * @since 1.9
  */

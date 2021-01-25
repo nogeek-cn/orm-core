@@ -7,6 +7,7 @@ import top.darian.orm.core.spring.TableInfoServiceBean;
 import top.darian.orm.core.spring.beans.util.TableInfoBeanUtils;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
 
 /***
@@ -65,6 +66,23 @@ public class BeanToDataBaseUtils {
                     "please check the fieldName dose has the set or get method !!!", fieldName));
         }
         return columnName;
+    }
+
+    /**
+     * 根据 Clazz 拿到 tableName
+     *
+     * @param clazz
+     * @return
+     */
+    public static String getTableNameByClazz(Class<?> clazz) {
+        if (Objects.isNull(clazz)) {
+            throw new RuntimeException("BeanToDataBaseUtils getTableNameByClazz clazz must be not null");
+        }
+        TableInfoServiceBean<?> bean = TableInfoBeanUtils.getBean(clazz);
+        if (Objects.isNull(bean)) {
+            throw new RuntimeException("BeanToDataBaseUtils getTableNameByClazz getBean not find this bean: " + clazz);
+        }
+        return bean.getTableName();
     }
 
 }
