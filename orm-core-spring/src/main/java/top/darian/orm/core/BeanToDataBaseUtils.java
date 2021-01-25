@@ -39,7 +39,7 @@ public class BeanToDataBaseUtils {
      */
     public static <T, R> String getColumnByFunctionName(SFunction<T, R> sFunction, Class<?> clazz) {
         TableInfoServiceBean<?> bean = TableInfoBeanUtils.getBean(clazz);
-        ConcurrentMap<String, String> functionFieldMap = bean.getFunctionColumnMap();
+        ConcurrentMap<String, String> functionFieldMap = bean.getFunctionFieldMap();
         String functionName = sFunction.getClass().getName();
         String fieldName = functionFieldMap.get(functionName);
         if (StringUtils.isEmpty(fieldName)) {

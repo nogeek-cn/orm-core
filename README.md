@@ -100,6 +100,12 @@ top.darian.orm.core.spring.util.module.mapping.tableNamingStrategy=classFullName
 
 - 未来有空了会做，大家也可以给我提 pr。哈哈哈哈
 
+### 版本迭代
+
+- 1.0.0
+  - 基本功能
+- 1.0.1
+  - functionColumnMap -> functionFieldMap 命名歧义
 
 
 

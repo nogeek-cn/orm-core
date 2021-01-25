@@ -14,7 +14,7 @@
         <javassist_version>3.20.0-GA</javassist_version>
         <spring_version>5.1.2.RELEASE</spring_version>
         <maven_flatten_version>1.1.0</maven_flatten_version>
-        <revision>1.0.0</revision>
+        <revision>1.0.1</revision>
         <slf4j_version>1.7.25</slf4j_version>
         <!-- Alibaba -->
         <alibaba_spring_context_support_version>1.0.10</alibaba_spring_context_support_version>
@@ -26,6 +26,7 @@
         <module>orm-core-common</module>
         <module>orm-core-api</module>
         <module>orm-core-spring</module>
+        <module>orm-core-example</module>
     </modules>
 
     <dependencyManagement>

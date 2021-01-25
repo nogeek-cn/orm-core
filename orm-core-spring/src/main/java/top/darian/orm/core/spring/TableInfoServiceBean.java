@@ -37,7 +37,7 @@ public class TableInfoServiceBean<T> extends ServiceConfigBase<T> implements Ini
 
     private Map<String, String> fieldColumnMap = new HashMap<String, String>();
 
-    private ConcurrentMap<String, String> functionColumnMap = new ConcurrentHashMap<String, String>();
+    private ConcurrentMap<String, String> functionFieldMap = new ConcurrentHashMap<String, String>();
 
     public TableInfoServiceBean() {
         super();
@@ -77,13 +77,13 @@ public class TableInfoServiceBean<T> extends ServiceConfigBase<T> implements Ini
         this.fieldColumnMap = Collections.unmodifiableMap(fieldColumnMap);
     }
 
-    public ConcurrentMap<String, String> getFunctionColumnMap() {
-        return functionColumnMap;
+    public ConcurrentMap<String, String> getFunctionFieldMap() {
+        return functionFieldMap;
     }
 
 
-    public void setFunctionColumnMap(ConcurrentHashMap<String, String> functionColumnMap) {
-        this.functionColumnMap = functionColumnMap;
+    public void setFunctionFieldMap(ConcurrentHashMap<String, String> functionFieldMap) {
+        this.functionFieldMap = functionFieldMap;
     }
 
     public Map<String, String> getFieldColumnMap() {

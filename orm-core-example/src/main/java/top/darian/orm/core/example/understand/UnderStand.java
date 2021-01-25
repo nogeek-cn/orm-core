@@ -26,9 +26,9 @@ public class UnderStand {
         testFunction();
         testFunction();
 
-        System.out.println(TableInfoBeanUtils.getBean(UserDO.class).getFunctionColumnMap());
+        System.out.println(TableInfoBeanUtils.getBean(UserDO.class).getFunctionFieldMap());
         System.out.println("UserDO.functionColumnMap().size():\t"
-                + TableInfoBeanUtils.getBean(UserDO.class).getFunctionColumnMap().size());
+                + TableInfoBeanUtils.getBean(UserDO.class).getFunctionFieldMap().size());
     }
 
 
@@ -41,7 +41,7 @@ public class UnderStand {
         System.out.println(String.format("tableInfoService.ref[%s].interfaceName:\t[%s]", clazz.getSimpleName(), bean.getTableClassName()));
         System.out.println(String.format("tableInfoService.ref[%s].interfaceClass:\t[%s]", clazz.getSimpleName(), bean.getTableClassClass()));
         System.out.println(String.format("tableInfoService.ref[%s].fieldColumnMap:\t[%s]", clazz.getSimpleName(), bean.getFieldColumnMap()));
-        System.out.println(String.format("tableInfoService.ref[%s].functionFieldMap:\t[%s]", clazz.getSimpleName(), bean.getFunctionColumnMap()));
+        System.out.println(String.format("tableInfoService.ref[%s].functionFieldMap:\t[%s]", clazz.getSimpleName(), bean.getFunctionFieldMap()));
         System.out.println(String.format("tableInfoService.ref[%s].tableName:\t[%s]", clazz.getSimpleName(), bean.getTableName()));
 
 
@@ -61,7 +61,7 @@ public class UnderStand {
         System.out.println("UserDO.name\t=\t" +
                 BeanToDataBaseUtils.getColumnByFieldName("name", UserDO.class));
 
-        System.out.println("UserDO.name\t=\t" +
+        System.out.println("UserDO.userName\t=\t" +
                 BeanToDataBaseUtils.getColumnByFieldName("userName", UserDO.class));
     }
 }
