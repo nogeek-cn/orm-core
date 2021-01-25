@@ -5,12 +5,13 @@
     <parent>
         <groupId>top.darian</groupId>
         <artifactId>orm-core</artifactId>
-        <version>${revision}</version>
+        <version>1.0.1</version>
     </parent>
     <groupId>top.darian</groupId>
     <artifactId>orm-core-api</artifactId>
     <version>${revision}</version>
     <name>orm-core-api</name>
+    <packaging>jar</packaging>
     <description>The api module of orm-core project</description>
     <properties>
         <java.version>1.8</java.version>

@@ -5,11 +5,13 @@
     <parent>
         <groupId>top.darian</groupId>
         <artifactId>orm-core</artifactId>
-        <version>${revision}</version>
+        <version>1.0.1</version>
     </parent>
     <groupId>top.darian</groupId>
     <artifactId>orm-core-common</artifactId>
     <name>orm-core-common</name>
+    <version>${revision}</version>
+    <packaging>jar</packaging>
     <description>The common module of orm-core project</description>
     <properties>
         <skip_maven_deploy>false</skip_maven_deploy>

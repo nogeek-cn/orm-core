@@ -17,7 +17,7 @@
 
 ## 为什么要用这款框架 
 
-1. 支持标准 `persistence-api` 的注解。
+1. 支持标准 jsr220 `persistence-api` 的注解。
 2. 没有学习成本：只需要 引入 `@TableInfo` 注解就可以实现映射。
 3. 支持扩展，字段名与数据库名字对应关系可以自定义。是否初始化。
 4. **支持 Function 编程，`Function` 与 `fieldName` 也进行了缓存。**  例如：`#getUserName` 与 `userName` 的对应关系。
