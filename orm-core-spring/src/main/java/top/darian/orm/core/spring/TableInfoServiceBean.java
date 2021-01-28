@@ -39,6 +39,8 @@ public class TableInfoServiceBean<T> extends ServiceConfigBase<T> implements Ini
 
     private ConcurrentMap<String, String> functionFieldMap = new ConcurrentHashMap<String, String>();
 
+    private ConcurrentMap<String, String> biConsumerFieldMap = new ConcurrentHashMap<>();
+
     public TableInfoServiceBean() {
         super();
     }
@@ -89,6 +91,16 @@ public class TableInfoServiceBean<T> extends ServiceConfigBase<T> implements Ini
     public Map<String, String> getFieldColumnMap() {
         return fieldColumnMap;
     }
+
+
+    public ConcurrentMap<String, String> getBiConsumerFieldMap() {
+        return biConsumerFieldMap;
+    }
+
+    public void setBiConsumerFieldMap(ConcurrentMap<String, String> biConsumerFieldMap) {
+        this.biConsumerFieldMap = biConsumerFieldMap;
+    }
+
 
 
     public String getTableName() {

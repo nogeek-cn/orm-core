@@ -21,6 +21,12 @@ public class OrmCoreExampleApplication {
                         TestModule::getUserName,
                         TestModule.class));
 
+        // user_name
+        System.out.println(
+                BeanToDataBaseUtils.getColumnBySBiConsumerName(
+                        TestModule::setUserName,
+                        TestModule.class));
+
         System.out.printf(BeanToDataBaseUtils.getTableNameByClazz(TestModule.class));
 
     }

@@ -1,6 +1,7 @@
 package top.darian.orm.core;
 
 import org.springframework.util.StringUtils;
+import top.darian.orm.core.common.module.SBiConsumer;
 import top.darian.orm.core.common.module.SFunction;
 import top.darian.orm.core.common.utils.LambdaUtils;
 import top.darian.orm.core.spring.TableInfoServiceBean;
@@ -28,6 +29,21 @@ public class BeanToDataBaseUtils {
     public static String getColumnByFieldName(String fieldName, Class<?> clazz) {
         TableInfoServiceBean<?> bean = TableInfoBeanUtils.getBean(clazz);
 
+        return getTableInfoServiceBeanColumnName(bean, fieldName);
+    }
+
+    public static <T, U> String getColumnBySBiConsumerName(SBiConsumer<T, U> sBiConsumer, Class<?> clazz) {
+        TableInfoServiceBean<?> bean = TableInfoBeanUtils.getBean(clazz);
+        ConcurrentMap<String, String> biConsumerFieldMap = bean.getBiConsumerFieldMap();
+        String biConsumerName = sBiConsumer.getClass().getName();
+        String fieldName = biConsumerFieldMap.get(biConsumerName);
+        if (StringUtils.isEmpty(fieldName)) {
+            fieldName = LambdaUtils.sBiConsumerToFieldName(sBiConsumer);
+            biConsumerFieldMap.put(biConsumerName, fieldName);
+        }
+        if (StringUtils.isEmpty(fieldName)) {
+            throw new RuntimeException("convert fieldName is empty");
+        }
         return getTableInfoServiceBeanColumnName(bean, fieldName);
     }
 

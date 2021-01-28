@@ -1,5 +1,6 @@
 package top.darian.orm.core.common.utils;
 
+import top.darian.orm.core.common.module.SBiConsumer;
 import top.darian.orm.core.common.module.SFunction;
 
 import java.lang.invoke.SerializedLambda;
@@ -18,7 +19,35 @@ public class LambdaUtils {
         return PropertyNamer.methodToProperty(functionName(sFunction));
     }
 
-    public static String functionName(SFunction sFunction) {
+    public static String sBiConsumerToFieldName(SBiConsumer sBiConsumer) {
+        return PropertyNamer.methodToProperty(sBiConsumerName(sBiConsumer));
+    }
+
+    private static String sBiConsumerName(SBiConsumer sBiConsumer) {
+        // 从function取出序列化方法
+        Method writeReplaceMethod;
+        try {
+            writeReplaceMethod = sBiConsumer.getClass().getDeclaredMethod("writeReplace");
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 从序列化方法取出序列化的lambda信息
+        boolean isAccessible = writeReplaceMethod.isAccessible();
+        writeReplaceMethod.setAccessible(true);
+        SerializedLambda serializedLambda;
+        try {
+            serializedLambda = (SerializedLambda) writeReplaceMethod.invoke(sBiConsumer);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+        writeReplaceMethod.setAccessible(isAccessible);
+
+        // 从lambda信息取出method、field、class等
+        return serializedLambda.getImplMethodName();
+    }
+
+    private static String functionName(SFunction sFunction) {
         // 从function取出序列化方法
         Method writeReplaceMethod;
         try {
