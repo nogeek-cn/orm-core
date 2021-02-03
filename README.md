@@ -67,8 +67,19 @@ public class OrmCoreExampleApplication {
             BeanToDataBaseUtils.getColumnByFunctionName(
                     TestModule::getUserName,
                     TestModule.class));
+
+    // user_name
+    System.out.println(
+            BeanToDataBaseUtils.getColumnBySBiConsumerName(
+                    TestModule::setUserName,
+                    TestModule.class));
+
+    // test_module
+    System.out.printf(BeanToDataBaseUtils.getTableNameByClazz(TestModule.class));
+
   }
 }
+
 @TableInfo
 @Data
 class TestModule {
@@ -95,7 +106,7 @@ orm.core.tableNamingStrategy=classFullName
 - 一天写完，有点仓促，xml 的还没有实现 
 
 ```xml
-<TableInfo:tableinfo-component-scan base-package="xxx.xxx.xx" />
+<TableInfo:annotation package="xxx.xxx.xx" />
 ```
 
 - 未来有空了会做，大家也可以给我提 pr。哈哈哈哈

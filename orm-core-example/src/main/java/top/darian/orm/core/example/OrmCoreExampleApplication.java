@@ -27,6 +27,7 @@ public class OrmCoreExampleApplication {
                         TestModule::setUserName,
                         TestModule.class));
 
+        // test_module
         System.out.printf(BeanToDataBaseUtils.getTableNameByClazz(TestModule.class));
 
     }
